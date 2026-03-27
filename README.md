@@ -104,10 +104,9 @@ Openlist/Alist 获取到的 115 网盘原始直链通常带有严格的防盗链
 
 **方式一：使用 Docker Compose（推荐）**
 
-1.  确保 `.env` 文件已配置好。
-2.  在项目根目录执行：
-
-<!-- end list -->
+1.  在任意空目录准备好上面的 `.env` 文件。
+2.  在同目录下创建 [docker-compose.yml](./docker-compose.yml) 文件：
+3.  启动并执行一次同步任务：
 
 ```bash
 # 启动并执行一次同步任务
@@ -116,15 +115,13 @@ docker-compose up --build
 
 **方式二：使用原生 Docker 命令**
 
-```bash
-# 1. 构建镜像
-docker build -t openlist-strm-go .
+准备好 .env 文件后，直接运行以下命令：
 
-# 2. 运行容器 (将宿主机的 ./data 挂载到容器内)
+```bash
 docker run --rm \
   --env-file .env \
   -v $(pwd)/data:/app/data \
-  openlist-strm-go
+  r0n9/openlist-strm-go:latest
 ```
 
 -----
@@ -167,7 +164,4 @@ crontab -e
 
 ```bash
 */30 * * * * cd /path/to/openlist-strm-go && docker-compose up >> /var/log/openlist-strm-docker.log 2>&1
-```
-
-```
 ```

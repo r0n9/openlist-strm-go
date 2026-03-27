@@ -2,9 +2,9 @@ version: '3.8'
 
 services:
   openlist-strm:
-    build: .
+    image: r0n9/openlist-strm-go:latest
     container_name: openlist-strm
-    restart: "no" # 由于是单次执行任务，执行完后退出，不需要自动重启
+    restart: "no" # 由于是单次扫描任务，执行完后退出，不需要自动重启
     env_file:
       - .env
     volumes:

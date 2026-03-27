@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  openlist-strm:
+    build: .
+    container_name: openlist-strm
+    restart: "no" # 由于是单次执行任务，执行完后退出，不需要自动重启
+    env_file:
+      - .env
+    volumes:
+      # 将宿主机的 ./data 目录映射到容器内的 /app/data
+      - ./data:/app/data

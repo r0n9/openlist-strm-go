@@ -109,8 +109,7 @@ Openlist/Alist 获取到的 115 网盘原始直链通常带有严格的防盗链
 3.  启动并执行一次同步任务：
 
 ```bash
-# 启动并执行一次同步任务
-docker-compose up --build
+docker-compose up
 ```
 
 **方式二：使用原生 Docker 命令**
